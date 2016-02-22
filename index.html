@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myCtrl">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="bootstrap.css"> -->
+  <link rel="stylesheet" href="datetimepicker.css" />
+  <script type="text/javascript" src="moment.js"></script>
+  <script type="text/javascript" src="bootstrap.js"></script>
+  <script type="text/javascript" src="datetimepicker.js"></script>
+  <script type="text/javascript" src="datetimeinput.js"></script>
+  <meta charset=utf-8 />
+  <title>Date Check</title>
+</head>
+
+<body>
+  <form>
+    <div align="center">
+      <label> Example 1  Model Value: </label>{{ test.date1 }}
+      <br>
+      <br>
+    <!--  <label>Local Time Zone: </label> {{test.date1 | date:'yyyy-MM-dd HH:mm:ss Z':'-0800'  }} <br> -->
+    <!--  <label>UTC Time Zone: </label> {{test.date1 | date:'yyyy-MM-dd HH:mm:ss Z':'+0000' }} -->
+      <br>
+      <br>
+      <div class="well" style="width: 400px">
+        <div class="dropdown" style="width: 400px">
+          <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" href="#">
+            <div class="input-group" style="width: 300px">
+              <input style="width: 300px" id="startdatetimepicker"  type="text" class="form-control" data-date-time-input="YYYY-MM-DD HH:mm:ss" data-view-tz="LOCAL" data-model-type="YYYY-MM-DD HH:mm:ss" data-ng-model="test.date1"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <datetimepicker data-ng-model="test.date1" data-datetimepicker-config="{ dropdownSelector: '#dropdown2', modelType: 'YYYY-MM-DD HH:mm:ss', modelTZ: 'UTC' }" />
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+      <div align="center">
+      <label> Example 2  Model Value: </label>{{ test.date2 }}
+      <br>
+      <br>
+      <label>Local Time Zone: </label> {{test.date2 | date:'yyyy-MM-dd HH:mm:ss Z':'-0800'  }} <br> 
+      <label>UTC Time Zone: </label> {{test.date2 | date:'yyyy-MM-dd HH:mm:ss Z':'+0000' }}
+      <br>
+      <br>
+      <div class="well" style="width: 400px">
+        <div class="dropdown" style="width: 400px">
+          <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" href="#">
+            <div class="input-group" style="width: 300px">
+              <input style="width: 300px" id="startdatetimepicker"  type="text" class="form-control" data-date-time-input="YYYY-MM-DD HH:mm:ss" data-view-tz="LOCAL" data-model-type="milliseconds" data-ng-model="test.date2"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <datetimepicker data-ng-model="test.date2" data-datetimepicker-config="{ dropdownSelector: '#dropdown1', modelType: 'milliseconds', modelTZ: 'UTC' }" />
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+      <div align="center">
+      <label> Example 3  Model Value: </label>{{ test.testStartTime }}
+      <br>
+      <br>
+      <label>Local Time Zone: </label> {{test.testStartTime | date:'yyyy-MM-dd HH:mm:ss Z':'-0800'  }} <br> 
+      <label>UTC Time Zone: </label> {{test.testStartTime | date:'yyyy-MM-dd HH:mm:ss Z':'+0000' }}
+      <br>
+      <br>
+      <div class="well" style="width: 400px">
+        <div class="dropdown" style="width: 400px">
+          <a class="dropdown-toggle" id="dropdown3" role="button" data-toggle="dropdown" data-target="#" href="#">
+            <div class="input-group" style="width: 300px">
+              <input style="width: 300px" id="startdatetimepicker"  type="text" class="form-control" data-date-time-input="YYYY-MM-DD HH:mm:ss" data-model-type="Date" data-ng-model="test.testStartTime"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <datetimepicker data-ng-model="test.testStartTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown3', modelType: 'Date'  }" />
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div align="center">
+    <button ng-click="save()">Save</button>
+    <p class="well">{{ msg | json}}</p><br><br>
+    <p class="well">{{ response | json}}</p>
+    </div>
+  </form>
+</body>
+
+</html>
